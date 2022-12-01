@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Reg Form</title>
+</head>
+
+<body>
+    <form name="myform" onsubmit="return validate()">
+        <h2>Registration Form</h2>
+        <table>
+            <tr>
+                <td><label>First Name: </label></td>
+                <td>
+                    <input type="text" name="fname">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Last Name: </label></td>
+                <td>
+                    <input type="text" name="lname">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Address: </label></td>
+                <td>
+                    <input type="textarea" size="20" name="address">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Password: </label>
+                <td>
+                    <input type="text" name="password">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Email Id: </label></td>
+                <td>
+                    <input type="text" name="email">
+                </td>
+            </tr>
+            <tr>
+                <td><label>Mobile: </label></td>
+                <td>
+                    <input type="text" name="mobile" pattern="[1-9]{1}[0-9]{9}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" name="submit" value="Submit">
+                    <input type="reset" name="reset" value="Reset">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function validate()
+        {
+            var fname = document.myform.fname;
+            var lname = document.myform.lname;
+            var address = document.myform.address;
+            var password =  document.myform.password
+            var email = document.myform.email;
+            var mobile = document.myform.mobile;
+			var nameformat = /^[a-zA-Z]+$/;
+            if (fname.value.length <= 6 && !fname.value.match(nameformat))
+            {
+                alert("Name should not be less than 6 and should contain only characters");
+                fname.focus();
+                return false;
+            }
+            if (lname.value.length <= 0)
+            {
+                alert("Last Name is required");
+                lname.focus();
+                return false;
+            }
+            if (address.value.length <= 0)
+            {
+                alert("Address is required");
+                lname.focus();
+                return false;
+            }
+            if (password.value.length <= 6)
+            {
+                alert("Password should not be less than 6");
+                address.focus();
+                return false;
+            }
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if (!email.value.match(mailformat))
+            {
+                alert("You have entered an invalid email address!");
+                email.focus();
+                return false;
+            }
+            if (mobile.value.length <= 0)
+            {
+                alert("Mobile number is required");
+                mobile.focus();
+                return false;
+            }
+            return false;
+        }    
+    </script>
+</body>
+
+</html>

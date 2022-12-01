@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function reversedNum(num)
+		{
+			return (
+				parseFloat(
+					num
+						.toString()
+						.split('')
+						.reverse()
+						.join('')
+				) * Math.sign(num)
+			)
+		}
+		document.write(reversedNum(321));
+
+		function reversedNum(num)
+		{
+			return (
+				parseFloat(
+					num
+						.toString()
+						.split('')
+						.reverse()
+						.join('')
+				) * Math.sign(num)
+			)
+		}
+		document.write("<br>"+reversedNum(-321));
+    </script>
+    <title>Document</title>
+</head>
+<body> </body>
+</html>
